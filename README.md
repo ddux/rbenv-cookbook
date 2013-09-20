@@ -1,6 +1,6 @@
 # rbenv cookbook
 
-Installs and manages your versions of Ruby and Gems in Chef with rbenv and ruby_build
+Installs and manages your versions of Ruby and Gems in Chef with rbenv and ruby_build - this is a fork of the RiotGames cookbook that is ruby 1.8.7 compatible.
 
 * [rbenv](https://github.com/sstephenson/rbenv)
 * [ruby_build](https://github.com/sstephenson/ruby-build)
