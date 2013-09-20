@@ -18,7 +18,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
+unless Kernel.respond_to?(:require_relative)
+  module Kernel
+    def require_relative(path)
+      require File.join(File.dirname(caller[0]), path.to_str)
+    end
+  end
+end
 require_relative 'chef_mixin_rbenv'
 
 class Chef
@@ -48,7 +54,7 @@ class Chef
               "RBENV_VERSION" => ruby_version,
               "PATH"          => ([ rbenv_shims_path, rbenv_bin_path ] + system_path).join(':')
             })
-            original_shell_out!(*args, options)
+            original_shell_out!(args, options)
           end
 
           private
