@@ -18,9 +18,11 @@ def load_current_resource
 end
 
 action :run do
-  execute "eval \"$(rbenv init -)\"" do
-    environment new_resource.environment
-  end
+  #TODO: verify: according to this ticket, the following isn't needed anymore
+  # https://github.com/sstephenson/rbenv/issues/454
+  # execute "eval \"$(rbenv init -)\"" do
+  #   environment new_resource.environment
+  # end
 
   execute new_resource.name do
     command     new_resource.command
